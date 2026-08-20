@@ -43,6 +43,22 @@ IDs para scripts/comandos:
 
 Ambos están compartidos como "cualquiera con el enlace puede ver".
 
+## Escritura en Sheets/Drive (service account)
+
+Para escribir (poblar/editar la hoja, subir imágenes) existe un service
+account ya configurado:
+
+- Email: `dondejuanita-bot@dondejuanita-web.iam.gserviceaccount.com` (Editor
+  de la hoja y de la carpeta de Drive)
+- Clave JSON: `~/.config/gcloud/dondejuanita-sa.json` — NUNCA commitear ni
+  imprimir su contenido
+- Token con scopes correctos: `TOKEN=$(~/.local/bin/dondejuanita-token)`
+  (los tokens por defecto de gcloud NO sirven para Sheets/Drive)
+- Proyecto GCP: `dondejuanita-web` (Sheets API + Drive API habilitadas)
+
+También existe el agente local de opencode `.opencode/agent/sheets.md`
+(especializado en estas operaciones).
+
 ## Estructura de la hoja de cálculo
 
 Tres pestañas obligatorias: `salas`, `menu`, `config`.
