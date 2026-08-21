@@ -221,8 +221,8 @@ h1, h2, h3, h4 {
 .hero-main {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 48px;
-  width: 100%;
 }
 
 .hero-img {
@@ -233,8 +233,8 @@ h1, h2, h3, h4 {
 }
 
 .hero-text {
-  flex: 1;
   min-width: 0;
+  max-width: 560px;
   text-align: right;
 }
 
