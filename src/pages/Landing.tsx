@@ -10,8 +10,8 @@ export default function Landing() {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <div className="hero-main">
+            <h1 className="hero-titulo">Donde Juanita</h1>
             <div className="hero-text">
-              <h1>Donde Juanita</h1>
               <p className="hero-tagline">
                 Un café no es solo una bebida,<br />
                 es el momento que elegís vivir.

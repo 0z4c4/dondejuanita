@@ -219,13 +219,24 @@ h1, h2, h3, h4 {
 }
 
 .hero-main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'titulo imagen'
+    'texto imagen';
   align-items: center;
-  justify-content: center;
-  gap: 48px;
+  column-gap: 48px;
+  row-gap: 12px;
+}
+
+.hero-titulo {
+  grid-area: titulo;
+  margin-bottom: 0;
+  text-align: right;
 }
 
 .hero-img {
+  grid-area: imagen;
   flex-shrink: 0;
   width: clamp(150px, 14vw, 200px);
   height: auto;
@@ -233,16 +244,17 @@ h1, h2, h3, h4 {
 }
 
 .hero-text {
+  grid-area: texto;
   min-width: 0;
   max-width: 560px;
   text-align: right;
 }
 
-.hero h1 {
+.hero-titulo {
   font-family: var(--font-heading);
   font-size: 3.5rem;
   color: var(--color-white);
-  margin-bottom: 20px;
+  margin-bottom: 0;
   text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
@@ -277,14 +289,14 @@ h1, h2, h3, h4 {
   }
 
   .hero-main {
-    gap: 36px;
+    column-gap: 36px;
   }
 
   .hero-img {
     width: clamp(130px, 12vw, 170px);
   }
 
-  .hero h1 {
+  .hero-titulo {
     font-size: 2.8rem;
   }
 
@@ -1054,27 +1066,28 @@ h2 {
   }
 
   .hero-main {
-    gap: 16px;
-  }
-
-  .hero-text {
-    text-align: right;
+    grid-template-areas:
+      'titulo titulo'
+      'texto imagen';
+    column-gap: 16px;
+    row-gap: 6px;
   }
 
   .hero-img {
     width: clamp(60px, 17vw, 80px);
   }
 
-  .hero h1 {
+  .hero-titulo {
     font-size: 2.4rem;
   }
 
   .hero-tagline {
-    font-size: 1.9rem;
+    font-size: 2.1rem;
   }
 
   .hero-buttons {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .menu-cards {
