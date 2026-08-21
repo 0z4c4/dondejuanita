@@ -24,7 +24,7 @@
   --radius-sm: 8px;
   --font-main: 'Montserrat', system-ui, -apple-system, sans-serif;
   --font-heading: 'Stack Sans Headline', 'Arial Narrow', sans-serif;
-  --font-script: 'Yesteryear', cursive;
+  --font-script: 'Corinthia', cursive;
 }
 
 html {
@@ -249,7 +249,7 @@ h1, h2, h3, h4 {
 .hero-tagline {
   font-family: var(--font-script);
   font-size: 2.3rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-white);
   margin-bottom: 16px;
   line-height: 1.15;
