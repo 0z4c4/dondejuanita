@@ -10,7 +10,7 @@ export default function Landing() {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <img
-            src={asset('img/hero-png.png')}
+            src={asset('img/hero.webp')}
             alt=""
             className="hero-img"
             width={600}

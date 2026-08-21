@@ -24,12 +24,14 @@ export default function Modal({
   children
 }: ModalProps) {
   const [fotoActual, setFotoActual] = useState(0)
+  const [estabaAbierto, setEstabaAbierto] = useState(false)
   const todasLasFotos = fotos || (imagen ? [imagen] : [])
   const dialogRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    setFotoActual(0)
-  }, [abierto])
+  if (abierto !== estabaAbierto) {
+    setEstabaAbierto(abierto)
+    if (abierto) setFotoActual(0)
+  }
 
   useEffect(() => {
     if (abierto) dialogRef.current?.focus()

@@ -184,6 +184,7 @@ h1, h2, h3, h4 {
 /* ===== Hero ===== */
 .hero {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   position: relative;
@@ -263,6 +264,28 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    padding: 100px 32px 60px;
+  }
+
+  .hero-content {
+    gap: 36px;
+  }
+
+  .hero-img {
+    width: clamp(220px, 30vw, 320px);
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.9rem;
+  }
 }
 
 /* ===== Buttons ===== */
