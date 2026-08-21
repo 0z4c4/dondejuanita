@@ -23,8 +23,8 @@
   --radius: 12px;
   --radius-sm: 8px;
   --font-main: 'Montserrat', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Anton', 'Arial Narrow', Impact, sans-serif;
-  --font-script: 'Sacramento', cursive;
+  --font-heading: 'Stack Sans Headline', 'Arial Narrow', sans-serif;
+  --font-script: 'Yesteryear', cursive;
 }
 
 html {
