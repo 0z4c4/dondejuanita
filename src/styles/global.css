@@ -223,8 +223,7 @@ h1, h2, h3, h4 {
   grid-template-columns: 1fr auto;
   grid-template-areas:
     'titulo imagen'
-    'texto imagen'
-    'botones botones';
+    'texto imagen';
   align-items: center;
   column-gap: 48px;
   row-gap: 0;
@@ -282,12 +281,10 @@ h1, h2, h3, h4 {
 }
 
 .hero-buttons {
-  grid-area: botones;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 44px;
 }
 
 @media (max-width: 1024px) {
@@ -1113,12 +1110,8 @@ h2 {
   }
 
   .hero-buttons {
-    margin-top: 0;
-  }
-
-  .hero-buttons {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
   }
 
