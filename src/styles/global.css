@@ -1079,10 +1079,19 @@ h2 {
 
   .hero-titulo {
     font-size: 2.4rem;
+    text-align: center;
   }
 
-  .hero-tagline {
-    font-size: 2.1rem;
+  .hero-text {
+    align-self: center;
+  }
+
+  .hero-ubication {
+    margin-bottom: 0;
+  }
+
+  .hero-img {
+    width: clamp(52px, 14vw, 68px);
   }
 
   .hero-buttons {
