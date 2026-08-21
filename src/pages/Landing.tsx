@@ -12,26 +12,25 @@ export default function Landing() {
           <div className="hero-main">
             <h1 className="hero-titulo">Donde Juanita</h1>
             <div className="hero-text">
-              <p className="hero-tagline">
-                Un café no es solo una bebida,<br />
-                es el momento que elegís vivir.
-              </p>
+              <p className="hero-tagline">Como estar en casa</p>
               <p className="hero-ubication">Santa Cruz de la Sierra, Bolivia</p>
             </div>
-            <img
-              src={asset('img/hero-right.webp')}
-              alt=""
-              className="hero-img"
-              width={300}
-              height={523}
-            />
-            <div className="hero-buttons">
-              <Link to="/salas" className="btn btn-primary">
-                Explorar Salas
-              </Link>
-              <Link to="/menu" className="btn btn-secondary">
-                Ver Menú
-              </Link>
+            <div className="hero-actions">
+              <div className="hero-buttons">
+                <Link to="/salas" className="btn btn-primary">
+                  Explorar Salas
+                </Link>
+                <Link to="/menu" className="btn btn-secondary">
+                  Ver Menú
+                </Link>
+              </div>
+              <img
+                src={asset('img/hero-right.webp')}
+                alt=""
+                className="hero-img"
+                width={300}
+                height={523}
+              />
             </div>
           </div>
         </div>

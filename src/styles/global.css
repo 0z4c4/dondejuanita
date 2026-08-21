@@ -132,7 +132,7 @@ h1, h2, h3, h4 {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: var(--color-text);
+  color: var(--color-primary);
   padding: 8px;
 }
 
@@ -235,14 +235,16 @@ h1, h2, h3, h4 {
   text-align: right;
 }
 
+.hero-actions {
+  display: contents;
+}
+
 .hero-img {
   grid-area: imagen;
   flex-shrink: 0;
   width: clamp(120px, 11vw, 160px);
   height: auto;
   filter: drop-shadow(0 12px 32px rgba(0,0,0,0.25));
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4px);
-  mask-image: linear-gradient(to right, transparent 0, #000 4px);
 }
 
 .hero-text {
@@ -262,7 +264,7 @@ h1, h2, h3, h4 {
 
 .hero-tagline {
   font-family: var(--font-script);
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 400;
   color: var(--color-white);
   margin-bottom: 16px;
@@ -270,7 +272,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-ubication {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -303,7 +305,7 @@ h1, h2, h3, h4 {
   }
 
   .hero-tagline {
-    font-size: 2.1rem;
+    font-size: 2.4rem;
   }
 }
 
@@ -803,11 +805,17 @@ h2 {
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+.footer-info,
+.footer-links,
+.footer-contact {
+  text-align: center;
+}
+
 .footer-logo {
   display: block;
   height: 48px;
   aspect-ratio: 1000 / 380;
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
   background: var(--color-white);
   -webkit-mask: url('/dondejuanita/img/logo.webp') center / contain no-repeat;
   mask: url('/dondejuanita/img/logo.webp') center / contain no-repeat;
@@ -1062,20 +1070,18 @@ h2 {
     animation: menuDown 0.2s ease;
   }
 
+  .navbar-links a {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+
   .hero {
     padding: 100px 24px 60px;
   }
 
   .hero-content {
     max-width: 100%;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      'titulo titulo'
-      'texto texto'
-      'botones imagen';
-    align-items: center;
-    gap: 14px;
+    gap: 18px;
   }
 
   .hero-main {
@@ -1083,14 +1089,12 @@ h2 {
   }
 
   .hero-titulo {
-    grid-area: titulo;
     font-size: 2.4rem;
     text-align: center;
     margin-bottom: 0;
   }
 
   .hero-text {
-    grid-area: texto;
     text-align: center;
   }
 
@@ -1098,15 +1102,20 @@ h2 {
     margin-bottom: 0;
   }
 
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
   .hero-buttons {
-    grid-area: botones;
     flex-direction: column;
     align-items: center;
     gap: 10px;
   }
 
   .hero-img {
-    grid-area: imagen;
     width: clamp(52px, 14vw, 68px);
   }
 
