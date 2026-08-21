@@ -18,15 +18,13 @@ export default function Landing() {
               </p>
               <p className="hero-ubication">Santa Cruz de la Sierra, Bolivia</p>
             </div>
-            <picture className="hero-img">
-              <source media="(min-width: 769px)" srcSet={asset('img/hero-right.webp')} />
-              <img
-                src={asset('img/hero.webp')}
-                alt=""
-                width={600}
-                height={523}
-              />
-            </picture>
+            <img
+              src={asset('img/hero-right.webp')}
+              alt=""
+              className="hero-img"
+              width={300}
+              height={523}
+            />
           </div>
           <div className="hero-buttons">
             <Link to="/salas" className="btn btn-primary">
