@@ -118,8 +118,12 @@ h1, h2, h3, h4 {
 }
 
 .navbar-logo-img {
+  display: block;
   height: 38px;
-  width: auto;
+  aspect-ratio: 1000 / 380;
+  background: var(--color-primary);
+  -webkit-mask: url('/dondejuanita/img/logo.webp') center / contain no-repeat;
+  mask: url('/dondejuanita/img/logo.webp') center / contain no-repeat;
 }
 
 .navbar-toggle {
@@ -225,14 +229,12 @@ h1, h2, h3, h4 {
   min-width: 0;
 }
 
-.hero-logo {
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--color-white);
   margin-bottom: 20px;
-}
-
-.hero-logo-img {
-  width: clamp(300px, 34vw, 460px);
-  height: auto;
-  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.3));
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .hero-tagline {
@@ -271,8 +273,8 @@ h1, h2, h3, h4 {
     width: clamp(220px, 30vw, 320px);
   }
 
-  .hero-logo-img {
-    width: clamp(240px, 32vw, 360px);
+  .hero h1 {
+    font-size: 2.8rem;
   }
 
   .hero-tagline {
@@ -342,17 +344,47 @@ h2 {
 .highlights-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 32px;
+  gap: 24px;
 }
 
 .highlight {
-  text-align: center;
-  padding: 24px;
+  position: relative;
+  min-height: 260px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  text-align: left;
+  box-shadow: var(--shadow-md);
 }
 
-.highlight-icon {
-  font-size: 2.5rem;
-  margin-bottom: 16px;
+.highlight-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.highlight:nth-child(1) .highlight-overlay {
+  background: linear-gradient(180deg, rgba(139, 69, 19, 0.5) 0%, rgba(107, 52, 16, 0.88) 100%);
+}
+
+.highlight:nth-child(2) .highlight-overlay {
+  background: linear-gradient(180deg, rgba(160, 82, 45, 0.5) 0%, rgba(44, 24, 16, 0.88) 100%);
+}
+
+.highlight:nth-child(3) .highlight-overlay {
+  background: linear-gradient(180deg, rgba(212, 165, 116, 0.4) 0%, rgba(107, 52, 16, 0.88) 100%);
+}
+
+.highlight:nth-child(4) .highlight-overlay {
+  background: linear-gradient(180deg, rgba(44, 24, 16, 0.45) 0%, rgba(139, 69, 19, 0.88) 100%);
+}
+
+.highlight-body {
+  position: relative;
+  z-index: 1;
+  padding: 24px;
 }
 
 .highlight h3 {
@@ -360,12 +392,13 @@ h2 {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .highlight p {
-  color: var(--color-text-light);
+  color: rgba(255,255,255,0.9);
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 /* ===== CTA ===== */
@@ -403,6 +436,7 @@ h2 {
 }
 
 .cta-section .btn-secondary {
+  background: transparent;
   border-color: var(--color-white);
   color: var(--color-white);
 }
@@ -744,8 +778,11 @@ h2 {
 .footer-logo {
   display: block;
   height: 48px;
-  width: auto;
+  aspect-ratio: 1000 / 380;
   margin-bottom: 12px;
+  background: var(--color-white);
+  -webkit-mask: url('/dondejuanita/img/logo.webp') center / contain no-repeat;
+  mask: url('/dondejuanita/img/logo.webp') center / contain no-repeat;
 }
 
 .footer-info p {
@@ -1012,8 +1049,8 @@ h2 {
     width: min(70vw, 300px);
   }
 
-  .hero-logo-img {
-    width: min(75vw, 320px);
+  .hero h1 {
+    font-size: 2.4rem;
   }
 
   .hero-tagline {
@@ -1038,8 +1075,12 @@ h2 {
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
+  }
+
+  .footer-info {
+    grid-column: 1 / -1;
   }
 
   .section {

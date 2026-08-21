@@ -17,15 +17,7 @@ export default function Landing() {
             height={523}
           />
           <div className="hero-text">
-            <h1 className="hero-logo">
-              <img
-                src={asset('img/logo.webp')}
-                alt="Donde Juanita"
-                className="hero-logo-img"
-                width={1000}
-                height={380}
-              />
-            </h1>
+            <h1>Donde Juanita</h1>
             <p className="hero-tagline">
               Un café no es solo una bebida,<br />
               es el momento que elegís vivir.
@@ -64,25 +56,45 @@ export default function Landing() {
       <section className="section highlights">
         <div className="container">
           <div className="highlights-grid">
-            <div className="highlight">
-              <div className="highlight-icon">☕</div>
-              <h3>Café de Especialidad</h3>
-              <p>Tostamos nuestros granos localmente. Cada taza es una experiencia.</p>
+            <div
+              className="highlight"
+              style={{ backgroundImage: 'url(https://picsum.photos/seed/cafeespecialidad/800/600)' }}
+            >
+              <div className="highlight-overlay"></div>
+              <div className="highlight-body">
+                <h3>Café de Especialidad</h3>
+                <p>Tostamos nuestros granos localmente. Cada taza es una experiencia.</p>
+              </div>
             </div>
-            <div className="highlight">
-              <div className="highlight-icon">🎨</div>
-              <h3>Salas Únicas</h3>
-              <p>Cada sala tiene su propia personalidad y ambientación temática.</p>
+            <div
+              className="highlight"
+              style={{ backgroundImage: 'url(https://picsum.photos/seed/salasunicas/800/600)' }}
+            >
+              <div className="highlight-overlay"></div>
+              <div className="highlight-body">
+                <h3>Salas Únicas</h3>
+                <p>Cada sala tiene su propia personalidad y ambientación temática.</p>
+              </div>
             </div>
-            <div className="highlight">
-              <div className="highlight-icon">📖</div>
-              <h3>Espacio para todos</h3>
-              <p>Trabajo, lectura, reuniones o simplemente disfrutar. Vos decidís.</p>
+            <div
+              className="highlight"
+              style={{ backgroundImage: 'url(https://picsum.photos/seed/espaciotodos/800/600)' }}
+            >
+              <div className="highlight-overlay"></div>
+              <div className="highlight-body">
+                <h3>Espacio para todos</h3>
+                <p>Trabajo, lectura, reuniones o simplemente disfrutar. Vos decidís.</p>
+              </div>
             </div>
-            <div className="highlight">
-              <div className="highlight-icon">🌿</div>
-              <h3>Producto Local</h3>
-              <p>Ingredientes frescos de productores cruceños.</p>
+            <div
+              className="highlight"
+              style={{ backgroundImage: 'url(https://picsum.photos/seed/productolocal/800/600)' }}
+            >
+              <div className="highlight-overlay"></div>
+              <div className="highlight-body">
+                <h3>Producto Local</h3>
+                <p>Ingredientes frescos de productores cruceños.</p>
+              </div>
             </div>
           </div>
         </div>

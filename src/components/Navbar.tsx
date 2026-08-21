@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <img src={asset('img/logo.webp')} alt="Donde Juanita" className="navbar-logo-img" width={1000} height={380} />
+          <span className="navbar-logo-img" role="img" aria-label="Donde Juanita"></span>
         </Link>
 
         <button

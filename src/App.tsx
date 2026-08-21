@@ -30,7 +30,7 @@ export default function App() {
       <footer className="footer">
         <div className="container footer-content">
           <div className="footer-info">
-            <img src={asset('img/logo.webp')} alt="Donde Juanita" className="footer-logo" width={1000} height={380} />
+            <span className="footer-logo" role="img" aria-label="Donde Juanita"></span>
             <p>Donde Juanita</p>
             <p className="footer-address">Santa Cruz de la Sierra, Bolivia</p>
           </div>
