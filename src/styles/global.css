@@ -241,6 +241,8 @@ h1, h2, h3, h4 {
   width: clamp(120px, 11vw, 160px);
   height: auto;
   filter: drop-shadow(0 12px 32px rgba(0,0,0,0.25));
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4px);
+  mask-image: linear-gradient(to right, transparent 0, #000 4px);
 }
 
 .hero-text {
@@ -1099,7 +1101,7 @@ h2 {
   .hero-buttons {
     grid-area: botones;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     gap: 10px;
   }
 
