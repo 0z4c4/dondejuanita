@@ -52,14 +52,14 @@ export default function Menu() {
                         }
                       }}
                     >
-                      <div className="menu-card-img">
-                        {item.imagen ? (
-                          <img src={item.imagen} alt={item.nombre} />
-                        ) : (
-                          <div className="menu-card-placeholder">
-                            <span>📷</span>
-                          </div>
-                        )}
+                      <div className="card-img">
+                        <img
+                          src={item.imagen}
+                          alt={item.nombre}
+                          width={600}
+                          height={450}
+                          loading="lazy"
+                        />
                       </div>
                       <div className="menu-card-body">
                         <h4>{item.nombre}</h4>

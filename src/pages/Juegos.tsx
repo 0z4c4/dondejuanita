@@ -17,11 +17,16 @@ export default function Juegos() {
         <div className="container">
           <div className="juegos-grid">
             {juegos.map((juego) => (
-              <div key={juego} className="juego-card">
-                <span className="juego-avatar" aria-hidden="true">
-                  {juego.charAt(0)}
-                </span>
-                <h3>{juego}</h3>
+              <div key={juego.id} className="juego-card">
+                <img
+                  src={juego.imagen}
+                  alt={juego.nombre}
+                  width={500}
+                  height={500}
+                  loading="lazy"
+                />
+                <div className="juego-overlay" aria-hidden="true"></div>
+                <span className="juego-nombre">{juego.nombre}</span>
               </div>
             ))}
           </div>

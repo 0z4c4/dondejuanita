@@ -102,6 +102,7 @@ sin costo). Página informativa, sin modal ni precios.
 |---------|------|-------|
 | id | texto | único, estable |
 | nombre | texto | |
+| imagen | texto | nombre de archivo o URL; se muestra en la card |
 | activo | TRUE/FALSE | filas FALSE se omiten del sitio |
 
 ### Pestaña `config`

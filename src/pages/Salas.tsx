@@ -25,11 +25,11 @@ export default function Salas() {
 
       <section className="section">
         <div className="container">
-          <div className="salas-lista">
+          <div className="salas-grid">
             {salas.map((s) => (
               <div
                 key={s.id}
-                className="sala-item"
+                className="sala-card"
                 role="button"
                 tabIndex={0}
                 onClick={() => abrirModal(s)}
@@ -40,23 +40,21 @@ export default function Salas() {
                   }
                 }}
               >
-                <div className="sala-item-img">
-                  <img src={s.fotos[0]} alt={s.nombre} />
+                <div className="card-img">
+                  <img src={s.fotos[0]} alt={s.nombre} width={800} height={600} loading="lazy" />
+                  <span className="card-badge">{s.tematica}</span>
                 </div>
-                <div className="sala-item-content">
-                  <div className="sala-item-header">
-                    <h2>{s.nombre}</h2>
-                    <span className="sala-tematica">{s.tematica}</span>
-                  </div>
-                  <p>{s.descripcion}</p>
-                  <div className="sala-item-details">
-                    <div className="sala-detail">
-                      <span className="sala-detail-label">Capacidad</span>
-                      <span className="sala-detail-value">{s.capacidad} personas</span>
+                <div className="sala-card-body">
+                  <h2>{s.nombre}</h2>
+                  <p className="sala-card-desc">{s.descripcion}</p>
+                  <div className="sala-card-specs">
+                    <div className="sala-spec">
+                      <span className="sala-spec-label">Capacidad</span>
+                      <span className="sala-spec-value">{s.capacidad} personas</span>
                     </div>
-                    <div className="sala-detail">
-                      <span className="sala-detail-label">Precio</span>
-                      <span className="sala-detail-value">{s.precioHora} Bs/hora</span>
+                    <div className="sala-spec">
+                      <span className="sala-spec-label">Precio</span>
+                      <span className="sala-spec-value">{s.precioHora} Bs/hora</span>
                     </div>
                   </div>
                 </div>
