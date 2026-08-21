@@ -5,7 +5,7 @@ import Landing from './pages/Landing'
 import Salas from './pages/Salas'
 import Menu from './pages/Menu'
 import Juegos from './pages/Juegos'
-import { asset, config } from './data/content'
+import { config } from './data/content'
 
 function ScrollToTop() {
   const { pathname } = useLocation()

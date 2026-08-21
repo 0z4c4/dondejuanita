@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
-import { whatsappLink, asset } from '../data/content'
+import { whatsappLink } from '../data/content'
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
