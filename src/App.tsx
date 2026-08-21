@@ -1,9 +1,10 @@
-import { Routes, Route, useLocation, Link } from 'react-router-dom'
+import { Routes, Route, useLocation, Link, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Landing from './pages/Landing'
 import Salas from './pages/Salas'
-import Precios from './pages/Precios'
+import Menu from './pages/Menu'
+import Juegos from './pages/Juegos'
 import { asset, config } from './data/content'
 
 function ScrollToTop() {
@@ -21,7 +22,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/salas" element={<Salas />} />
-          <Route path="/precios" element={<Precios />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/precios" element={<Navigate to="/menu" replace />} />
+          <Route path="/juegos" element={<Juegos />} />
         </Routes>
       </main>
       <footer className="footer">
@@ -35,7 +38,8 @@ export default function App() {
             <h4>Enlaces</h4>
             <Link to="/">Inicio</Link>
             <Link to="/salas">Salas</Link>
-            <Link to="/precios">Precios</Link>
+            <Link to="/menu">Menú</Link>
+            <Link to="/juegos">Juegos</Link>
           </div>
           <div className="footer-contact">
             <h4>Contacto</h4>

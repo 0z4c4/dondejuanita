@@ -44,6 +44,7 @@ export interface MenuItem {
   nombre: string
   descripcion: string
   precio: number
+  precioJarra?: number
   categoria: string
   imagen?: string
 }
@@ -146,19 +147,82 @@ export const salas: Sala[] = [
 
 /**
  * Pestaña `menu`. Columna `imagen`: nombre del archivo en
- * Drive /menu/<categoria>/ (o URL mientras no exista la imagen real).
+ * Drive /menu/<categoria>/ (vacía mientras no exista la imagen real).
+ * `precioJarra`: precio de jarra, solo Bebidas Frías que lo manejan.
  */
 export const menu: MenuItem[] = [
-  { id: '1', nombre: 'Café Espresso', descripcion: 'Nuestro café estrella, fuerte y aromático. Extracción perfecta con granularity media-alta.', precio: 12, categoria: 'Bebidas Calientes', imagen: 'https://picsum.photos/seed/espresso/400/300' },
-  { id: '2', nombre: 'Capuchino', descripcion: 'Espresso con espuma de leche cremosa, decorado con arte latte.', precio: 18, categoria: 'Bebidas Calientes', imagen: 'https://picsum.photos/seed/capuchino/400/300' },
-  { id: '3', nombre: 'Café con Leche', descripcion: 'Clásico y reconfortante. Proporción perfecta de café y leche al vapor.', precio: 14, categoria: 'Bebidas Calientes', imagen: 'https://picsum.photos/seed/cafeleche/400/300' },
-  { id: '4', nombre: 'Chocolate Caliente', descripcion: 'Chocolate belga derretido con crema batida y un toque de canela.', precio: 20, categoria: 'Bebidas Calientes', imagen: 'https://picsum.photos/seed/chocolate/400/300' },
-  { id: '5', nombre: 'Té de la Casa', descripcion: 'Selección de tés importados: earl grey, verde jazmín, chái especiado.', precio: 15, categoria: 'Bebidas Calientes', imagen: 'https://picsum.photos/seed/te/400/300' },
-  { id: '6', nombre: 'Smoothie Tropical', descripcion: 'Mango, maracuyá y leche de coco. Refrescante y lleno de vitaminas.', precio: 22, categoria: 'Bebidas Frías', imagen: 'https://picsum.photos/seed/smoothie/400/300' },
-  { id: '7', nombre: 'Cold Brew', descripcion: 'Café frío de extracción lenta 24 horas. Suave, naturalmente dulce.', precio: 20, categoria: 'Bebidas Frías', imagen: 'https://picsum.photos/seed/coldbrew/400/300' },
-  { id: '8', nombre: 'Limonada de Coco', descripcion: 'Fresca y tropical. Limón real con leche de coco y hielo.', precio: 16, categoria: 'Bebidas Frías', imagen: 'https://picsum.photos/seed/limonada/400/300' },
-  { id: '9', nombre: 'Croissant de Jamón y Queso', descripcion: 'Hojaldrado recién horneado con jamón premium y queso gratinado.', precio: 18, categoria: 'Comida', imagen: 'https://picsum.photos/seed/croissant/400/300' },
-  { id: '10', nombre: 'Tostada Avocado', descripcion: 'Aguacate, tomate cherry y semillas sobre pan artesanal integral.', precio: 25, categoria: 'Comida', imagen: 'https://picsum.photos/seed/avocado/400/300' },
-  { id: '11', nombre: 'Brownie de Chocolate', descripcion: 'Denso, oscuro y adictivo. Con nueces y un toque de sal marina.', precio: 15, categoria: 'Postres', imagen: 'https://picsum.photos/seed/brownie/400/300' },
-  { id: '12', nombre: 'Tiramisú', descripcion: 'El clásico italiano con toque cruceño. Café, mascarpone y cacao.', precio: 20, categoria: 'Postres', imagen: 'https://picsum.photos/seed/tiramisu/400/300' }
+  { id: '1', categoria: 'Horneados Típicos', nombre: 'Arepa', descripcion: '', precio: 11 },
+  { id: '2', categoria: 'Horneados Típicos', nombre: 'Cuñapé', descripcion: '', precio: 8 },
+  { id: '3', categoria: 'Horneados Típicos', nombre: 'Cuñapé Frito', descripcion: '', precio: 8 },
+  { id: '4', categoria: 'Horneados Típicos', nombre: 'Cuñapé con Guayaba', descripcion: '', precio: 9 },
+  { id: '5', categoria: 'Horneados Típicos', nombre: 'Cuñapé c/ Maja Blanco', descripcion: '', precio: 9 },
+  { id: '6', categoria: 'Horneados Típicos', nombre: 'Empanada Frita de Queso', descripcion: '', precio: 8 },
+  { id: '7', categoria: 'Horneados Típicos', nombre: 'Empanada de Arroz', descripcion: '', precio: 8 },
+  { id: '8', categoria: 'Horneados Típicos', nombre: 'Empanada de Maíz', descripcion: '', precio: 8 },
+  { id: '9', categoria: 'Horneados Típicos', nombre: 'Empanada Tortilla', descripcion: '', precio: 10 },
+  { id: '10', categoria: 'Horneados Típicos', nombre: 'Empanada de Pollo', descripcion: '', precio: 13 },
+  { id: '11', categoria: 'Horneados Típicos', nombre: 'Empanada de Trigo c/Queso', descripcion: 'Promo: 3 por 20 Bs', precio: 7 },
+  { id: '12', categoria: 'Horneados Típicos', nombre: 'Empanada Integral', descripcion: '', precio: 7 },
+  { id: '13', categoria: 'Horneados Típicos', nombre: 'Empanada de jamón, queso, choclo', descripcion: '', precio: 10 },
+  { id: '14', categoria: 'Horneados Típicos', nombre: 'Pan con queso Casero', descripcion: 'Promo: 4 por 15 Bs', precio: 4 },
+  { id: '15', categoria: 'Horneados Típicos', nombre: 'Mini Pizza', descripcion: '', precio: 10 },
+  { id: '16', categoria: 'Horneados Típicos', nombre: 'Mollete', descripcion: '', precio: 6 },
+  { id: '17', categoria: 'Horneados Típicos', nombre: 'TortiMollete', descripcion: '', precio: 7.5 },
+  { id: '18', categoria: 'Horneados Típicos', nombre: 'Torta de Chocolate', descripcion: '', precio: 12 },
+  { id: '19', categoria: 'Horneados Típicos', nombre: 'Marraqueta', descripcion: 'Promo: 4 por 15 Bs', precio: 4 },
+  { id: '20', categoria: 'Horneados Típicos', nombre: 'Sonso', descripcion: '', precio: 12 },
+  { id: '21', categoria: 'Horneados Típicos', nombre: 'Tamal a la olla', descripcion: '', precio: 14 },
+  { id: '22', categoria: 'Horneados Típicos', nombre: 'Pastel de choclo', descripcion: '', precio: 13 },
+  { id: '23', categoria: 'Masacos', nombre: 'Masaco de plátano maduro con charque', descripcion: '', precio: 14 },
+  { id: '24', categoria: 'Masacos', nombre: 'Masaco de plátano verde con charque', descripcion: '', precio: 14 },
+  { id: '25', categoria: 'Masacos', nombre: 'Masaco de plátano pintón con queso', descripcion: '', precio: 14 },
+  { id: '26', categoria: 'Masacos', nombre: 'Masaco de plátano pintón con Chicharrón', descripcion: '', precio: 14 },
+  { id: '27', categoria: 'Masacos', nombre: 'Masaco de yuca con Chicharrón y Charque', descripcion: '', precio: 15 },
+  { id: '28', categoria: 'Postres', nombre: 'Gelatina de pata', descripcion: 'Consultar disponibilidad', precio: 9 },
+  { id: '29', categoria: 'Postres', nombre: 'Budín con grosella', descripcion: 'Consultar disponibilidad', precio: 8 },
+  { id: '30', categoria: 'Postres', nombre: 'Arroz con leche', descripcion: 'Consultar disponibilidad', precio: 9 },
+  { id: '31', categoria: 'Postres', nombre: 'Quiero Más', descripcion: 'Consultar disponibilidad', precio: 14 },
+  { id: '32', categoria: 'Tortas', nombre: 'Torta para 10 personas', descripcion: 'Sabores: Chocolate - Zanahoria', precio: 175 },
+  { id: '33', categoria: 'Tortas', nombre: 'Torta para 20 personas', descripcion: 'Sabores: Chocolate - Zanahoria', precio: 340 },
+  { id: '34', categoria: 'Bebidas Calientes', nombre: 'Café clásico', descripcion: '', precio: 16 },
+  { id: '35', categoria: 'Bebidas Calientes', nombre: 'Café con Leche', descripcion: '', precio: 18 },
+  { id: '36', categoria: 'Bebidas Calientes', nombre: 'Capuccino', descripcion: '', precio: 22 },
+  { id: '37', categoria: 'Bebidas Calientes', nombre: 'Chocolate con Leche', descripcion: '', precio: 20 },
+  { id: '38', categoria: 'Bebidas Calientes', nombre: 'Té', descripcion: '', precio: 10 },
+  { id: '39', categoria: 'Bebidas Calientes', nombre: 'Infusiones', descripcion: '', precio: 10 },
+  { id: '40', categoria: 'Bebidas Calientes', nombre: 'Api', descripcion: '', precio: 12 },
+  { id: '41', categoria: 'Bebidas Frías', nombre: 'Mocochinchi', descripcion: '', precio: 9, precioJarra: 40 },
+  { id: '42', categoria: 'Bebidas Frías', nombre: 'Lima', descripcion: '', precio: 9, precioJarra: 40 },
+  { id: '43', categoria: 'Bebidas Frías', nombre: 'Limonada', descripcion: '', precio: 9, precioJarra: 40 },
+  { id: '44', categoria: 'Bebidas Frías', nombre: 'Jugo de Estación c/ agua', descripcion: '', precio: 17, precioJarra: 50 },
+  { id: '45', categoria: 'Bebidas Frías', nombre: 'Jugo de Estación c/ leche', descripcion: '', precio: 20, precioJarra: 55 },
+  { id: '46', categoria: 'Bebidas Frías', nombre: 'Frapé', descripcion: '', precio: 25 },
+  { id: '47', categoria: 'Bebidas Frías', nombre: 'Frapuccino', descripcion: '', precio: 25 },
+  { id: '48', categoria: 'Bebidas Frías', nombre: 'Iced Latte', descripcion: '', precio: 28 },
+  { id: '49', categoria: 'Bebidas Frías', nombre: 'Botella de agua', descripcion: '', precio: 10 },
+  { id: '50', categoria: 'Bebidas Frías', nombre: 'Botella de agua c/gas', descripcion: '', precio: 10 },
+  { id: '51', categoria: 'Bebidas Frías', nombre: 'Soda personal', descripcion: '', precio: 10 }
+]
+
+/**
+ * Pestaña `juegos`. Se usan a cambio del Carnet de identidad,
+ * sin costo. Cards informativos, sin modal.
+ */
+export const juegos: string[] = [
+  'Yenga',
+  'Dominó',
+  'Cartas sobre la mesa: versión pareja',
+  'Cartas sobre la mesa: versión amigos',
+  'Cachos',
+  'Amigos de Mierda',
+  'Peor es nada',
+  'UNO',
+  'Qce',
+  'Cartas',
+  'Tres en raya',
+  'Basta!',
+  'Ajedrez',
+  'Scrable',
+  'Ludo',
+  'Damas chinas'
 ]

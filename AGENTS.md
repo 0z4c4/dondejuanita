@@ -61,7 +61,7 @@ También existe el agente local de opencode `.opencode/agent/sheets.md`
 
 ## Estructura de la hoja de cálculo
 
-Tres pestañas obligatorias: `salas`, `menu`, `config`.
+Cuatro pestañas obligatorias: `salas`, `menu`, `juegos`, `config`.
 La primera fila es siempre el encabezado (no se lee como dato).
 
 ### Pestaña `salas`
@@ -85,8 +85,23 @@ La primera fila es siempre el encabezado (no se lee como dato).
 | categoria | texto | agrupa la carta; define subcarpeta en Drive |
 | nombre | texto | |
 | descripcion | texto | |
-| precio | número | en Bs |
-| imagen | texto | nombre de archivo: `espresso.jpg` |
+| precio | número | en Bs; para bebidas con jarra es el precio del vaso |
+| precio_jarra | número | OPCIONAL, solo bebidas que se venden por vaso y jarra |
+| imagen | texto | nombre de archivo: `arepa.jpg` (vacío si aún no hay foto) |
+| activo | TRUE/FALSE | filas FALSE se omiten del sitio |
+
+Categorías actuales: Horneados Típicos, Masacos, Postres, Tortas,
+Bebidas Calientes, Bebidas Frías.
+
+### Pestaña `juegos`
+
+Juegos disponibles en el local (se usan a cambio del Carnet de identidad,
+sin costo). Página informativa, sin modal ni precios.
+
+| Columna | Tipo | Notas |
+|---------|------|-------|
+| id | texto | único, estable |
+| nombre | texto | |
 | activo | TRUE/FALSE | filas FALSE se omiten del sitio |
 
 ### Pestaña `config`
@@ -112,11 +127,13 @@ dondejuanita/
 │   ├── selva1.jpg        ← nombres = columna `fotos` de la hoja
 │   └── ...
 └── menu/
+    ├── Horneados Típicos/
+    │   └── arepa.jpg     ← subcarpeta = columna `categoria`
+    ├── Masacos/
+    ├── Postres/
+    ├── Tortas/
     ├── Bebidas Calientes/
-    │   └── espresso.jpg  ← subcarpeta = columna `categoria`
-    ├── Bebidas Frías/
-    ├── Comida/
-    └── Postres/
+    └── Bebidas Frías/
 ```
 
 Reglas:
@@ -128,11 +145,14 @@ Reglas:
 ## Dónde vive el código
 
 - **`src/data/content.ts`** — ÚNICO archivo con contenido: exporta
-  `salas`, `menu`, `config`, el helper `whatsappLink()` y
+  `salas`, `menu`, `juegos`, `config`, el helper `whatsappLink()` y
   `asset(ruta)` que antepone `/dondejuanita` a rutas locales.
   Cualquier cambio de datos se hace aquí.
-- `src/store/useStore.ts` — solo expone salas/menu vía Zustand (no
-  contiene datos).
+- `src/store/useStore.ts` — solo expone salas/menu/juegos vía Zustand
+  (no contiene datos).
+- Páginas: `/` (Landing), `/salas`, `/menu` (carta, cards abren modal),
+  `/juegos` (cards informativos, SIN modal). La ruta vieja `/precios`
+  redirige a `/menu`.
 - Imágenes locales: `public/img/salas/` y `public/img/menu/<Categoria>/`.
 - Los campos `fotos`/`imagen` aceptan URL externa (placeholders picsum
   actuales) o ruta local envuelta con `asset()`:

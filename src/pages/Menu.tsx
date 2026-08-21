@@ -2,7 +2,7 @@ import { useStore } from '../store/useStore'
 import { useState } from 'react'
 import Modal from '../components/Modal'
 
-export default function Precios() {
+export default function Menu() {
   const menu = useStore((s) => s.menu)
   const [modalAbierto, setModalAbierto] = useState(false)
   const [itemSeleccionado, setItemSeleccionado] = useState<typeof menu[0] | null>(null)
@@ -14,10 +14,16 @@ export default function Precios() {
     setModalAbierto(true)
   }
 
+  const precioLabel = itemSeleccionado
+    ? itemSeleccionado.precioJarra
+      ? `Vaso ${itemSeleccionado.precio} Bs · Jarra ${itemSeleccionado.precioJarra} Bs`
+      : `${itemSeleccionado.precio} Bs`
+    : ''
+
   return (
-    <div className="page precios-page">
+    <div className="page menu-page">
       <section className="page-header">
-        <h1>Nuestra Carta</h1>
+        <h1>Menú</h1>
         <p>Cada producto es una experiencia. Descubrilos.</p>
       </section>
 
@@ -54,8 +60,10 @@ export default function Precios() {
                       </div>
                       <div className="menu-card-body">
                         <h4>{item.nombre}</h4>
-                        <p>{item.descripcion}</p>
-                        <span className="menu-card-precio">{item.precio} Bs</span>
+                        {item.descripcion && <p>{item.descripcion}</p>}
+                        <span className="menu-card-precio">
+                          {item.precioJarra ? `${item.precio} / ${item.precioJarra} Bs` : `${item.precio} Bs`}
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -65,11 +73,12 @@ export default function Precios() {
         </div>
       </section>
 
-      <section className="section precios-nota">
+      <section className="section menu-nota">
         <div className="container">
           <p>
             <strong>Nota:</strong> Los precios pueden variar. Consultá disponibilidad y precios
-            actualizados en el local. Formas de pago: efectivo, QR Tigo/Enlace, transferencia.
+            actualizados en el local. En bebidas frías con doble precio: vaso / jarra.
+            Formas de pago: efectivo, QR Tigo/Enlace, transferencia.
           </p>
         </div>
       </section>
@@ -81,7 +90,7 @@ export default function Precios() {
     descripcion={itemSeleccionado?.descripcion ?? ''}
     imagen={itemSeleccionado?.imagen}
     precio={itemSeleccionado?.precio}
-    precioLabel={`${itemSeleccionado?.precio} Bs`}
+    precioLabel={precioLabel}
   />
     </div>
   )

@@ -9,7 +9,8 @@ export default function Navbar() {
   const links = [
     { to: '/', label: 'Inicio' },
     { to: '/salas', label: 'Salas' },
-    { to: '/precios', label: 'Precios' },
+    { to: '/menu', label: 'Menú' },
+    { to: '/juegos', label: 'Juegos' },
   ]
 
   return (

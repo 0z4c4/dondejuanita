@@ -621,15 +621,67 @@ h2 {
   font-variant-numeric: tabular-nums;
 }
 
-.precios-nota {
+.menu-nota {
   background: var(--color-accent-light) !important;
 }
 
-.precios-nota p {
+.menu-nota p {
   color: var(--color-text-light);
   font-size: 0.95rem;
   text-align: center;
   font-weight: 400;
+}
+
+/* ===== Juegos ===== */
+.juegos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.juego-card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 28px 16px;
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.juego-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.juego-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.juego-card h3 {
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.juegos-nota {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
 }
 
 /* ===== Footer ===== */
