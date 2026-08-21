@@ -1086,7 +1086,21 @@ h2 {
   }
 
   .menu-cards {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .menu-card-body {
+    padding: 12px;
+  }
+
+  .menu-card-body h4 {
+    font-size: 1rem;
+  }
+
+  .menu-card-precio {
+    font-size: 0.95rem;
+    padding: 3px 10px;
   }
 
   .salas-grid {
