@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { whatsappLink } from '../data/content'
+import { whatsappLink, asset } from '../data/content'
 
 export default function Landing() {
   return (
@@ -9,6 +9,13 @@ export default function Landing() {
         <div className="hero-bg" style={{ backgroundImage: 'url(https://picsum.photos/seed/cafehero/1920/1080)' }}></div>
         <div className="hero-overlay"></div>
         <div className="hero-content">
+          <img
+            src={asset('img/hero-png.png')}
+            alt=""
+            className="hero-img"
+            width={600}
+            height={523}
+          />
           <div className="hero-text">
             <h1>Donde Juanita</h1>
             <p className="hero-tagline">
@@ -20,7 +27,7 @@ export default function Landing() {
               <Link to="/salas" className="btn btn-primary">
                 Explorar Salas
               </Link>
-              <Link to="/precios" className="btn btn-secondary">
+              <Link to="/menu" className="btn btn-secondary">
                 Ver Carta
               </Link>
             </div>
@@ -87,8 +94,8 @@ export default function Landing() {
             >
               Reservar por WhatsApp
             </a>
-            <Link to="/precios" className="btn btn-secondary">
-              Ver Precios
+            <Link to="/menu" className="btn btn-secondary">
+              Ver Menú
             </Link>
           </div>
         </div>
