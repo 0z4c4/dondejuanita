@@ -450,22 +450,26 @@ h2 {
   flex-wrap: wrap;
 }
 
-.cta-section .btn-primary {
+.cta-section .btn-primary,
+.hero-buttons .btn-primary {
   background: var(--color-white);
   color: var(--color-primary);
 }
 
-.cta-section .btn-primary:hover {
+.cta-section .btn-primary:hover,
+.hero-buttons .btn-primary:hover {
   background: var(--color-accent-light);
 }
 
-.cta-section .btn-secondary {
+.cta-section .btn-secondary,
+.hero-buttons .btn-secondary {
   background: transparent;
   border-color: var(--color-white);
   color: var(--color-white);
 }
 
-.cta-section .btn-secondary:hover {
+.cta-section .btn-secondary:hover,
+.hero-buttons .btn-secondary:hover {
   background: rgba(255,255,255,0.15);
 }
 
@@ -1062,42 +1066,46 @@ h2 {
 
   .hero-content {
     max-width: 100%;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'titulo titulo'
+      'texto texto'
+      'botones imagen';
+    align-items: center;
+    gap: 14px;
   }
 
   .hero-main {
-    grid-template-areas:
-      'titulo titulo'
-      'texto imagen';
-    column-gap: 16px;
-    row-gap: 6px;
-  }
-
-  .hero-img {
-    width: clamp(60px, 17vw, 80px);
+    display: contents;
   }
 
   .hero-titulo {
+    grid-area: titulo;
     font-size: 2.4rem;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   .hero-text {
-    align-self: center;
+    grid-area: texto;
+    text-align: center;
   }
 
   .hero-ubication {
     margin-bottom: 0;
   }
 
-  .hero-img {
-    width: clamp(52px, 14vw, 68px);
+  .hero-buttons {
+    grid-area: botones;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
+  .hero-img {
+    grid-area: imagen;
+    width: clamp(52px, 14vw, 68px);
   }
 
   .menu-cards {

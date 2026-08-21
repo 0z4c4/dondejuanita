@@ -25,14 +25,14 @@ export default function Landing() {
               width={300}
               height={523}
             />
-          </div>
-          <div className="hero-buttons">
-            <Link to="/salas" className="btn btn-primary">
-              Explorar Salas
-            </Link>
-            <Link to="/menu" className="btn btn-secondary">
-              Ver Carta
-            </Link>
+            <div className="hero-buttons">
+              <Link to="/salas" className="btn btn-primary">
+                Explorar Salas
+              </Link>
+              <Link to="/menu" className="btn btn-secondary">
+                Ver Menú
+              </Link>
+            </div>
           </div>
         </div>
       </section>
