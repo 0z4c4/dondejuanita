@@ -223,10 +223,11 @@ h1, h2, h3, h4 {
   grid-template-columns: 1fr auto;
   grid-template-areas:
     'titulo imagen'
-    'texto imagen';
+    'texto imagen'
+    'botones botones';
   align-items: center;
   column-gap: 48px;
-  row-gap: 12px;
+  row-gap: 0;
 }
 
 .hero-titulo {
@@ -242,7 +243,7 @@ h1, h2, h3, h4 {
 .hero-img {
   grid-area: imagen;
   flex-shrink: 0;
-  width: clamp(120px, 11vw, 160px);
+  width: clamp(100px, 8vw, 125px);
   height: auto;
   filter: drop-shadow(0 12px 32px rgba(0,0,0,0.25));
 }
@@ -281,10 +282,12 @@ h1, h2, h3, h4 {
 }
 
 .hero-buttons {
+  grid-area: botones;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 44px;
 }
 
 @media (max-width: 1024px) {
@@ -297,7 +300,7 @@ h1, h2, h3, h4 {
   }
 
   .hero-img {
-    width: clamp(105px, 10vw, 140px);
+    width: clamp(88px, 7vw, 108px);
   }
 
   .hero-titulo {
@@ -1099,14 +1102,18 @@ h2 {
   }
 
   .hero-ubication {
-    margin-bottom: 0;
+    margin-bottom: 16px;
   }
 
   .hero-actions {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 24px;
+  }
+
+  .hero-buttons {
+    margin-top: 0;
   }
 
   .hero-buttons {
