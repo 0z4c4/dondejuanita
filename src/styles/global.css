@@ -199,10 +199,10 @@ h1, h2, h3, h4 {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(139, 69, 19, 0.85) 0%,
-    rgba(107, 52, 16, 0.7) 40%,
-    rgba(160, 82, 45, 0.5) 70%,
-    rgba(212, 165, 116, 0.3) 100%
+    rgba(44, 24, 16, 0.93) 0%,
+    rgba(69, 34, 10, 0.85) 40%,
+    rgba(107, 52, 16, 0.7) 70%,
+    rgba(139, 69, 19, 0.5) 100%
   );
 }
 
@@ -213,13 +213,21 @@ h1, h2, h3, h4 {
   width: 100%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 56px;
+  gap: 44px;
+}
+
+.hero-main {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
 }
 
 .hero-img {
   flex-shrink: 0;
-  width: clamp(280px, 36vw, 460px);
+  width: clamp(230px, 26vw, 350px);
   height: auto;
   filter: drop-shadow(0 12px 32px rgba(0,0,0,0.25));
 }
@@ -227,6 +235,7 @@ h1, h2, h3, h4 {
 .hero-text {
   flex: 1;
   min-width: 0;
+  text-align: right;
 }
 
 .hero h1 {
@@ -240,7 +249,8 @@ h1, h2, h3, h4 {
 .hero-tagline {
   font-family: var(--font-script);
   font-size: 2.3rem;
-  color: rgba(255,255,255,0.95);
+  font-weight: 700;
+  color: var(--color-white);
   margin-bottom: 16px;
   line-height: 1.15;
 }
@@ -258,6 +268,7 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 @media (max-width: 1024px) {
@@ -265,12 +276,12 @@ h1, h2, h3, h4 {
     padding: 100px 32px 60px;
   }
 
-  .hero-content {
+  .hero-main {
     gap: 36px;
   }
 
   .hero-img {
-    width: clamp(220px, 30vw, 320px);
+    width: clamp(200px, 24vw, 280px);
   }
 
   .hero h1 {
@@ -355,8 +366,9 @@ h2 {
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: flex-end;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   box-shadow: var(--shadow-md);
 }
 
@@ -366,19 +378,19 @@ h2 {
 }
 
 .highlight:nth-child(1) .highlight-overlay {
-  background: linear-gradient(180deg, rgba(139, 69, 19, 0.5) 0%, rgba(107, 52, 16, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(44, 24, 16, 0.62) 0%, rgba(69, 34, 10, 0.93) 100%);
 }
 
 .highlight:nth-child(2) .highlight-overlay {
-  background: linear-gradient(180deg, rgba(160, 82, 45, 0.5) 0%, rgba(44, 24, 16, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(69, 34, 10, 0.62) 0%, rgba(44, 24, 16, 0.93) 100%);
 }
 
 .highlight:nth-child(3) .highlight-overlay {
-  background: linear-gradient(180deg, rgba(212, 165, 116, 0.4) 0%, rgba(107, 52, 16, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(107, 52, 16, 0.58) 0%, rgba(44, 24, 16, 0.93) 100%);
 }
 
 .highlight:nth-child(4) .highlight-overlay {
-  background: linear-gradient(180deg, rgba(44, 24, 16, 0.45) 0%, rgba(139, 69, 19, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(44, 24, 16, 0.6) 0%, rgba(107, 52, 16, 0.92) 100%);
 }
 
 .highlight-body {
@@ -388,9 +400,9 @@ h2 {
 }
 
 .highlight h3 {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  font-weight: 400;
   margin-bottom: 8px;
   color: var(--color-white);
 }
@@ -461,10 +473,10 @@ h2 {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(139, 69, 19, 0.85) 0%,
-    rgba(107, 52, 16, 0.7) 40%,
-    rgba(160, 82, 45, 0.5) 70%,
-    rgba(212, 165, 116, 0.3) 100%
+    rgba(44, 24, 16, 0.93) 0%,
+    rgba(69, 34, 10, 0.85) 40%,
+    rgba(107, 52, 16, 0.7) 70%,
+    rgba(139, 69, 19, 0.5) 100%
   );
 }
 
@@ -576,32 +588,20 @@ h2 {
   font-variant-numeric: tabular-nums;
 }
 
-/* ===== Salas Info ===== */
-.info-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+/* ===== Eventos banner ===== */
+.eventos-banner {
+  padding: 110px 20px;
 }
 
-.info-card {
-  background: var(--color-white);
-  padding: 28px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+/* ===== Horario (Landing) ===== */
+.horario-section {
+  text-align: center;
 }
 
-.info-card h3 {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: var(--color-primary);
-}
-
-.info-card p {
+.horario-section p {
   color: var(--color-text-light);
-  font-size: 1rem;
-  margin-bottom: 4px;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
 }
 
 /* ===== Menu Cards (Precios) ===== */
@@ -1040,13 +1040,20 @@ h2 {
 
   .hero-content {
     max-width: 100%;
-    flex-direction: column;
     gap: 32px;
+  }
+
+  .hero-main {
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+
+  .hero-text {
     text-align: center;
   }
 
   .hero-img {
-    width: min(70vw, 300px);
+    width: min(60vw, 260px);
   }
 
   .hero h1 {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { whatsappLink, asset } from '../data/content'
+import { whatsappLink, asset, config } from '../data/content'
 
 export default function Landing() {
   return (
@@ -9,28 +9,30 @@ export default function Landing() {
         <div className="hero-bg" style={{ backgroundImage: 'url(https://picsum.photos/seed/cafehero/1920/1080)' }}></div>
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <img
-            src={asset('img/hero.webp')}
-            alt=""
-            className="hero-img"
-            width={600}
-            height={523}
-          />
-          <div className="hero-text">
-            <h1>Donde Juanita</h1>
-            <p className="hero-tagline">
-              Un café no es solo una bebida,<br />
-              es el momento que elegís vivir.
-            </p>
-            <p className="hero-ubication">Santa Cruz de la Sierra, Bolivia</p>
-            <div className="hero-buttons">
-              <Link to="/salas" className="btn btn-primary">
-                Explorar Salas
-              </Link>
-              <Link to="/menu" className="btn btn-secondary">
-                Ver Carta
-              </Link>
+          <div className="hero-main">
+            <div className="hero-text">
+              <h1>Donde Juanita</h1>
+              <p className="hero-tagline">
+                Un café no es solo una bebida,<br />
+                es el momento que elegís vivir.
+              </p>
+              <p className="hero-ubication">Santa Cruz de la Sierra, Bolivia</p>
             </div>
+            <img
+              src={asset('img/hero.webp')}
+              alt=""
+              className="hero-img"
+              width={600}
+              height={523}
+            />
+          </div>
+          <div className="hero-buttons">
+            <Link to="/salas" className="btn btn-primary">
+              Explorar Salas
+            </Link>
+            <Link to="/menu" className="btn btn-secondary">
+              Ver Carta
+            </Link>
           </div>
         </div>
       </section>
@@ -97,6 +99,15 @@ export default function Landing() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Horario */}
+      <section className="section horario-section">
+        <div className="container">
+          <h2>Horarios</h2>
+          <p>Lunes a Viernes: {config.horario_lun_vie}</p>
+          <p>Sábados y Domingos: {config.horario_sab_dom}</p>
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 import { useStore } from '../store/useStore'
 import { useState } from 'react'
 import Modal from '../components/Modal'
-import { config, whatsappLink } from '../data/content'
+import { whatsappLink } from '../data/content'
 
 export default function Salas() {
   const salas = useStore((s) => s.salas)
@@ -66,26 +66,12 @@ export default function Salas() {
         </div>
       </section>
 
-      <section className="section salas-info">
-        <div className="container">
-          <div className="info-cards">
-            <div className="info-card">
-              <h3>🕐 Horario</h3>
-              <p>Lunes a Viernes: {config.horario_lun_vie}</p>
-              <p>Sábados y Domingos: {config.horario_sab_dom}</p>
-            </div>
-            <div className="info-card">
-              <h3>📱 Reservas</h3>
-              <p>Podés reservar por WhatsApp o directamente en el local.</p>
-              <p>Se recomienda reservar con 2h de anticipación.</p>
-            </div>
-            <div className="info-card">
-              <h3>🎉 Eventos</h3>
-              <p>Alquiler de salas para cumpleaños, reuniones y eventos especiales.</p>
-              <p>Consultá paquetes personalizados.</p>
-            </div>
-          </div>
-        </div>
+      <section
+        className="page-header eventos-banner"
+        style={{ backgroundImage: 'url(https://picsum.photos/seed/eventosbanner/1920/700)' }}
+      >
+        <div className="page-header-overlay"></div>
+        <p>Cumpleaños, reuniones y eventos especiales. Consultá paquetes personalizados.</p>
       </section>
 
       <Modal
