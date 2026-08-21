@@ -758,12 +758,10 @@ h2 {
   bottom: 0;
   z-index: 1;
   padding: 14px;
-  font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
   color: var(--color-white);
   text-align: center;
   text-wrap: balance;
