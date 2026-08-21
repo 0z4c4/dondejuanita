@@ -22,8 +22,11 @@ export default function Menu() {
 
   return (
     <div className="page menu-page">
-      <section className="page-header">
-        <h1>Menú</h1>
+      <section
+        className="page-header"
+        style={{ backgroundImage: 'url(https://picsum.photos/seed/menupage/1920/700)' }}
+      >
+        <div className="page-header-overlay"></div>
         <p>Cada producto es una experiencia. Descubrilos.</p>
       </section>
 

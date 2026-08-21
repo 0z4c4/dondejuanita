@@ -5,8 +5,11 @@ export default function Juegos() {
 
   return (
     <div className="page juegos-page">
-      <section className="page-header">
-        <h1>Juegos</h1>
+      <section
+        className="page-header"
+        style={{ backgroundImage: 'url(https://picsum.photos/seed/juegospage/1920/700)' }}
+      >
+        <div className="page-header-overlay"></div>
         <p>Disfrutá de nuestros juegos a cambio de tu Carnet de identidad.</p>
       </section>
 

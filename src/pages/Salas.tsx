@@ -15,8 +15,11 @@ export default function Salas() {
 
   return (
     <div className="page salas-page">
-      <section className="page-header">
-        <h1>Salas Temáticas</h1>
+      <section
+        className="page-header"
+        style={{ backgroundImage: 'url(https://picsum.photos/seed/salaspage/1920/700)' }}
+      >
+        <div className="page-header-overlay"></div>
         <p>Cada sala es un mundo aparte. Elegí tu favorita.</p>
       </section>
 
