@@ -118,18 +118,8 @@ h1, h2, h3, h4 {
 }
 
 .navbar-logo-img {
-  height: 40px;
-  width: 40px;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-.navbar-logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--color-primary);
+  height: 38px;
+  width: auto;
 }
 
 .navbar-toggle {
@@ -235,12 +225,14 @@ h1, h2, h3, h4 {
   min-width: 0;
 }
 
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  color: var(--color-white);
+.hero-logo {
   margin-bottom: 20px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.hero-logo-img {
+  width: clamp(300px, 34vw, 460px);
+  height: auto;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.3));
 }
 
 .hero-tagline {
@@ -279,8 +271,8 @@ h1, h2, h3, h4 {
     width: clamp(220px, 30vw, 320px);
   }
 
-  .hero h1 {
-    font-size: 2.8rem;
+  .hero-logo-img {
+    width: clamp(240px, 32vw, 360px);
   }
 
   .hero-tagline {
@@ -741,10 +733,8 @@ h2 {
 
 .footer-logo {
   display: block;
-  height: 50px;
-  width: 50px;
-  object-fit: contain;
-  border-radius: 50%;
+  height: 48px;
+  width: auto;
   margin-bottom: 12px;
 }
 
@@ -1012,8 +1002,8 @@ h2 {
     width: min(70vw, 300px);
   }
 
-  .hero h1 {
-    font-size: 2.4rem;
+  .hero-logo-img {
+    width: min(75vw, 320px);
   }
 
   .hero-tagline {

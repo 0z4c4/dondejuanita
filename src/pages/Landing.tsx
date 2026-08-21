@@ -17,7 +17,15 @@ export default function Landing() {
             height={523}
           />
           <div className="hero-text">
-            <h1>Donde Juanita</h1>
+            <h1 className="hero-logo">
+              <img
+                src={asset('img/logo.webp')}
+                alt="Donde Juanita"
+                className="hero-logo-img"
+                width={1000}
+                height={380}
+              />
+            </h1>
             <p className="hero-tagline">
               Un café no es solo una bebida,<br />
               es el momento que elegís vivir.
