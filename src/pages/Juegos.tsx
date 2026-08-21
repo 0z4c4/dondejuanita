@@ -26,6 +26,7 @@ export default function Juegos() {
                   loading="lazy"
                 />
                 <div className="juego-overlay" aria-hidden="true"></div>
+                <div className="juego-vineta" aria-hidden="true"></div>
                 <span className="juego-nombre">{juego.nombre}</span>
               </div>
             ))}
