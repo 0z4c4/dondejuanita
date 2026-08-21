@@ -1050,20 +1050,19 @@ h2 {
 
   .hero-content {
     max-width: 100%;
-    gap: 32px;
+    gap: 24px;
   }
 
   .hero-main {
-    flex-direction: column-reverse;
-    gap: 32px;
+    gap: 16px;
   }
 
   .hero-text {
-    text-align: center;
+    text-align: right;
   }
 
   .hero-img {
-    width: min(48vw, 200px);
+    width: clamp(60px, 17vw, 80px);
   }
 
   .hero h1 {
