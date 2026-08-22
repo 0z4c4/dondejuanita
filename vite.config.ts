@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.jpg'],
+      includeAssets: ['logo.jpg', 'favicon.png', 'apple-touch-icon.png', 'isotipo.png'],
       manifest: {
         name: 'Donde Juanita',
         short_name: 'Juanita',
@@ -19,14 +19,14 @@ export default defineConfig({
         start_url: '/dondejuanita/',
         icons: [
           {
-            src: '/dondejuanita/logo.jpg',
+            src: '/dondejuanita/isotipo-192.png',
             sizes: '192x192',
-            type: 'image/jpeg'
+            type: 'image/png'
           },
           {
-            src: '/dondejuanita/logo.jpg',
+            src: '/dondejuanita/isotipo.png',
             sizes: '512x512',
-            type: 'image/jpeg'
+            type: 'image/png'
           }
         ]
       }

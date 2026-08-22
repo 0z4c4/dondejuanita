@@ -124,17 +124,22 @@ direccion
 
 ```
 dondejuanita/
+├── hero-bg-image.jpg     ← imágenes raíz del landing (hero, highlights,
+├── highlight1.jpg           logo, about). Se convierten a .webp local;
+├── logo.png                 los nombres NO van en la hoja
 ├── salas/
 │   ├── selva1.jpg        ← nombres = columna `fotos` de la hoja
 │   └── ...
-└── menu/
-    ├── Horneados Típicos/
-    │   └── arepa.jpg     ← subcarpeta = columna `categoria`
-    ├── Masacos/
-    ├── Postres/
-    ├── Tortas/
-    ├── Bebidas Calientes/
-    └── Bebidas Frías/
+├── menu/
+│   ├── Horneados Típicos/
+│   │   └── arepa.jpg     ← subcarpeta = columna `categoria`
+│   ├── Masacos/
+│   ├── Postres/
+│   ├── Tortas/
+│   ├── Bebidas Calientes/
+│   └── Bebidas Frías/
+└── juegos/
+    └── ajedrez.jpeg      ← nombres = columna `imagen` de `juegos`
 ```
 
 Reglas:
@@ -154,10 +159,16 @@ Reglas:
 - Páginas: `/` (Landing), `/salas`, `/menu` (carta, cards abren modal),
   `/juegos` (cards informativos, SIN modal). La ruta vieja `/precios`
   redirige a `/menu`.
-- Imágenes locales: `public/img/salas/` y `public/img/menu/<Categoria>/`.
-- Los campos `fotos`/`imagen` aceptan URL externa (placeholders picsum
-  actuales) o ruta local envuelta con `asset()`:
-  `asset('img/menu/Bebidas Calientes/espresso.jpg')`.
+- Los textos/imágenes del Landing (hero, about, highlights, horarios/mapa,
+  CTA) viven directo en `src/pages/Landing.tsx`; de la hoja solo vienen
+  salas, menu, juegos y config.
+- Imágenes locales: `public/img/salas/`, `public/img/menu/<Categoria>/`,
+  `public/img/juegos/` e imágenes sueltas del landing en `public/img/`
+  (`hero-bg.webp`, `highlight-*.webp`, `empanada-landing[-left].webp`).
+- Los campos `fotos`/`imagen` aceptan ruta local envuelta con `asset()`
+  (ej.: `asset('img/menu/Bebidas Calientes/espresso.webp')`) o URL externa.
+- Ya no hay placeholders picsum: todo usa imágenes locales reales; si una
+  foto falta se reusa otra existente como fallback.
 
 ## Procedimiento de actualización (cuando cambien Sheets o Drive)
 
@@ -178,7 +189,13 @@ Reglas:
    ```bash
    curl -L "https://drive.google.com/uc?export=download&id=<FILE_ID>" -o <nombre>.jpg
    ```
-   Copiar a `public/img/salas/` y `public/img/menu/<Categoria>/`.
+   Convertir SIEMPRE a `.webp` (calidad 80) antes de copiar:
+   ```bash
+   ffmpeg -y -i entrada.jpg -quality 80 public/img/<destino>/salida.webp
+   # recortes: -vf "crop=iw/2:ih:0:0"  (mitad izquierda)
+   ```
+   Destinos: `public/img/salas/`, `public/img/menu/<Categoria>/`,
+   `public/img/juegos/` o `public/img/` (landing).
 
 3. **Actualizar `src/data/content.ts`**: reflejar datos e imágenes
    (rutas `/img/...`). No tocar interfaces ni estructura sin necesidad.
@@ -195,3 +212,11 @@ Reglas:
 - Sin comentarios en el código salvo los bloques explicativos ya
   existentes en `content.ts`.
 - Precios siempre en Bs (números, sin símbolo en los datos).
+- Breakpoint único: móvil ≤768px, web ≥769px (`min-width: 769px`).
+- Navegación entre páginas con View Transitions API (`viewTransition`
+  prop en los `<Link>`); el modal abre/cierra SIN transición.
+  `html { scrollbar-gutter: stable }` evita el salto al bloquear scroll.
+- Mapa del landing: iframe oficial de Google (`pb=...`) hardcodeado en
+  `Landing.tsx`; el zoom inicial se ajusta con el valor `!1d<span>`
+  (mayor = más alejado).
+- NO commitear ni deployar sin que se pida explícitamente.
