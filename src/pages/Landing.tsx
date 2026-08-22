@@ -133,7 +133,7 @@ export default function Landing() {
           <div className="info-card">
             <iframe
               className="info-mapa"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d474.8866760927565!2d-63.174266116567615!3d-17.78730659628543!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e9007c5c568b%3A0x45e455c1f889f154!2sDonde%20Juanita!5e0!3m2!1ses!2sus!4v1787357819989!5m2!1ses!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3500!2d-63.174266116567615!3d-17.78730659628543!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e9007c5c568b%3A0x45e455c1f889f154!2sDonde%20Juanita!5e0!3m2!1ses!2sus!4v1787357819989!5m2!1ses!2sus"
               title="Mapa de Donde Juanita"
               loading="lazy"
               allowFullScreen
