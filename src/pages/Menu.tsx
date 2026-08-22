@@ -1,6 +1,7 @@
 import { useStore } from '../store/useStore'
 import { useState } from 'react'
 import Modal from '../components/Modal'
+import { asset } from '../data/content'
 
 export default function Menu() {
   const menu = useStore((s) => s.menu)
@@ -24,7 +25,7 @@ export default function Menu() {
     <div className="page menu-page">
       <section
         className="page-header"
-        style={{ backgroundImage: 'url(https://picsum.photos/seed/menupage/1920/700)' }}
+        style={{ backgroundImage: `url(${asset('img/hero-bg.webp')})` }}
       >
         <div className="page-header-overlay"></div>
         <p>Cada producto es una experiencia. Descubrilos.</p>

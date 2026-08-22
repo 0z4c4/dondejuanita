@@ -1,7 +1,7 @@
 import { useStore } from '../store/useStore'
 import { useState } from 'react'
 import Modal from '../components/Modal'
-import { whatsappLink } from '../data/content'
+import { whatsappLink, asset } from '../data/content'
 
 export default function Salas() {
   const salas = useStore((s) => s.salas)
@@ -17,7 +17,7 @@ export default function Salas() {
     <div className="page salas-page">
       <section
         className="page-header"
-        style={{ backgroundImage: 'url(https://picsum.photos/seed/salaspage/1920/700)' }}
+        style={{ backgroundImage: `url(${asset('img/hero-bg.webp')})` }}
       >
         <div className="page-header-overlay"></div>
         <p>Cada sala es un mundo aparte. Elegí tu favorita.</p>
@@ -66,7 +66,7 @@ export default function Salas() {
 
       <section
         className="page-header eventos-banner"
-        style={{ backgroundImage: 'url(https://picsum.photos/seed/eventosbanner/1920/700)' }}
+        style={{ backgroundImage: `url(${asset('img/hero-bg.webp')})` }}
       >
         <div className="page-header-overlay"></div>
         <p>Cumpleaños, reuniones y eventos especiales. Consultá paquetes personalizados.</p>

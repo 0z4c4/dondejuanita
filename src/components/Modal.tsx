@@ -33,19 +33,21 @@ export default function Modal({
     if (abierto) setFotoActual(0)
   }
 
+  const cerrar = onClose
+
   useEffect(() => {
     if (abierto) dialogRef.current?.focus()
   }, [abierto])
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') onClose()
+    if (e.key === 'Escape') cerrar()
     if (e.key === 'ArrowLeft' && todasLasFotos.length > 1) {
       setFotoActual((prev) => (prev === 0 ? todasLasFotos.length - 1 : prev - 1))
     }
     if (e.key === 'ArrowRight' && todasLasFotos.length > 1) {
       setFotoActual((prev) => (prev === todasLasFotos.length - 1 ? 0 : prev + 1))
     }
-  }, [onClose, todasLasFotos.length])
+  }, [cerrar, todasLasFotos.length])
 
   useEffect(() => {
     if (abierto) {
@@ -61,7 +63,7 @@ export default function Modal({
   if (!abierto) return null
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={cerrar}>
       <div
         className="modal"
         ref={dialogRef}
@@ -71,14 +73,18 @@ export default function Modal({
         aria-label={titulo}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose} aria-label="Cerrar">
+        <button className="modal-close" onClick={cerrar} aria-label="Cerrar">
           ✕
         </button>
 
         {todasLasFotos.length > 0 && (
           <div className="modal-gallery">
             <div className="modal-gallery-img">
-              <img src={todasLasFotos[fotoActual]} alt={`${titulo} - Foto ${fotoActual + 1}`} />
+              <img
+                key={fotoActual}
+                src={todasLasFotos[fotoActual]}
+                alt={`${titulo} - Foto ${fotoActual + 1}`}
+              />
             </div>
             {todasLasFotos.length > 1 && (
               <>

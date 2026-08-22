@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
+        <Link to="/" className="navbar-logo" viewTransition>
           <span className="navbar-logo-img" role="img" aria-label="Donde Juanita"></span>
         </Link>
 
@@ -35,6 +35,7 @@ export default function Navbar() {
                 to={link.to}
                 className={location.pathname === link.to ? 'activo' : ''}
                 onClick={() => setMenuAbierto(false)}
+                viewTransition
               >
                 {link.label}
               </Link>
